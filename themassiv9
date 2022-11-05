@@ -1,0 +1,39 @@
+найти в массиве, состоящим из n чисел сумму и произведение элементов, находящихся после минимального
+#include "pt4.h"
+using namespace std;
+
+
+void Solve()
+{
+    Task("TheMassiv9");
+    int* Arr;
+    int n;
+    pt >> n;
+    Arr = new int[n];
+    for (int i = 0; i < n; ++i)
+    {
+        pt >> Arr[i];
+    }
+    int min = Arr[0];
+    int ind = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (Arr[i] < min)
+        {
+            min = Arr[i];
+            ind = i;
+        }
+    }
+    int sum = 0;
+    for (int i = ind + 1; i < n; ++i)
+    {
+        sum += Arr[i];
+    }
+    pt << sum;
+    int p = 1;
+    for (int i = ind + 1; i < n; ++i)
+    {
+        p *= Arr[i];
+    }
+    pt << p;
+ }
