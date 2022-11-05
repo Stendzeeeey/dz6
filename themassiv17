@@ -1,0 +1,26 @@
+дан массив x(n), где нужно найти 2 наименьших значения и вывести в порядке убывания
+#include "pt4.h"
+using namespace std;
+
+void Solve()
+{
+    Task("TheMassiv17");
+    int n;
+    pt >> n;
+    int* x = new int[n];
+    for (int i = 0; i < n; i++)
+        pt >> x[i];
+    int min1 = x[0], min2 = x[1];
+    if (min1 > min2) swap(min1, min2);
+    for (int i = 2; i < n; i++)
+        if (x[i] < min1)
+        {
+            min2 = min1;
+            min1 = x[i];
+        }
+        else if (x[i] < min2 || min1 == min2)
+        {
+            min2 = x[i];
+        }
+    pt << min2 << min1;
+}
