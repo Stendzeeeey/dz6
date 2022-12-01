@@ -1,10 +1,25 @@
+//В массиве из n чисел найти локальный минимум, используя указатели
+#include <pt4.h>
+using namespace std;
 
- int s[50] = {}, n, count = 0;;
-    pt >> n;
-    for (int i = 0; i < n; i++) pt >> s[i];
-    for (int i = 0; i < n - 1; i++) if (s[i] > s[i + 1] && s[i] > s[i-1]) s[i] = 999;
-    for (int i = 0; i < n - 1; i++) if (s[i] == 999) {
-        pt << i;
-        count++;
+Void Solve()
+{
+Task("TheMassiv29");
+int n, k = 0;
+
+pt >> n;
+int* x = new int[n];
+{
+    pt >> *(x+i)
+}
+for (int i = 1; i < n; i++)
+{
+    if ((*(x+i-1) < *(x+i)) && (*(x+i) >  *(x+i=1)))
+    {
+            k+=1;
+            pt << i;
+        }
     }
-    pt << count;
+    delete[]x;
+    pt << k;
+}
